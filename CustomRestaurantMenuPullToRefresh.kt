@@ -7,5 +7,5 @@ import com.sryang.library.pullrefresh.RefreshIndicatorState
 import com.sryang.library.pullrefresh.rememberPullToRefreshState
 
 val CustomRestaurantMenuPullToRefresh : RestaurantMenuPullToRefresh = {modifier, isRefreshing, onRefresh, contents -> providePullToRefresh(rememberPullToRefreshState()).invoke(
-    PullToRefreshData(modifier, com.sarang.torang.compose.feed.state.RefreshIndicatorState.Default  ,onRefresh ,contents)
+    PullToRefreshData(modifier, RefreshIndicatorState.Default  ,onRefresh ,contents)
 ) }
