@@ -1,8 +1,7 @@
 package com.sarang.torang.di.restaurant_menu_di
 
 import com.sarang.torang.BuildConfig
-import com.sarang.torang.compose.menu.MenuData
-import com.sarang.torang.data.RestaurantDetail
+import com.sarang.torang.compose.component.menu.MenuData
 import com.sarang.torang.data.remote.response.RestaurantDetailApiModel
 
 

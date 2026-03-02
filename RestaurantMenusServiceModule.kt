@@ -1,7 +1,7 @@
 package com.sarang.torang.di.restaurant_menu_di
 
 import com.sarang.torang.api.ApiRestaurant
-import com.sarang.torang.compose.menu.MenuData
+import com.sarang.torang.compose.component.menu.MenuData
 import com.sarang.torang.usecase.GetMenuUseCase
 import dagger.Module
 import dagger.Provides
