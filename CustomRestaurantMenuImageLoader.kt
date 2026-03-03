@@ -7,14 +7,13 @@ import com.sarang.torang.di.image.TorangAsyncImageData
 import com.sarang.torang.di.image.provideTorangAsyncImage
 
 val customRestaurantMenuImageLoader : RestaurantMenuImageLoader = {
-    modifier, url, progressSize, errorIconSize, contentScale ->
     provideTorangAsyncImage().invoke(
         TorangAsyncImageData(
-            modifier = modifier,
-            model = url,
-            progressSize = progressSize ?: 30.dp,
-            errorIconSize = errorIconSize ?: 30.dp,
-            contentScale = contentScale ?: ContentScale.None
+            modifier        = it.modifier,
+            model           = it.url,
+            progressSize    = it.progressSize ?: 30.dp,
+            errorIconSize   = it.errorIconSize ?: 30.dp,
+            contentScale    = it.contentScale ?: ContentScale.None
         )
     )
 }
