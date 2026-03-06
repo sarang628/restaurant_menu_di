@@ -9,7 +9,7 @@ fun RestaurantDetailApiModel.toMenus(): List<MenuData> {
     return this.menus.map {
         MenuData(
             menuName = it.menu_name ?: "",
-            price = it.menu_price?.toFloat() ?: 0f,
+            price = "${it.menu_price}",
             url = BuildConfig.MENU_IMAGE_SERVER_URL + it.menu_pic_url
         )
     }
