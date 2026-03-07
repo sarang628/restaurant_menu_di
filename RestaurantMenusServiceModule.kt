@@ -1,7 +1,7 @@
 package com.sarang.torang.di.restaurant_menu_di
 
 import com.sarang.torang.api.ApiRestaurant
-import com.sarang.torang.compose.component.menu.MenuData
+import com.sarang.torang.compose.component.menu.Menu
 import com.sarang.torang.usecase.GetMenuUseCase
 import dagger.Module
 import dagger.Provides
@@ -15,7 +15,7 @@ class RestaurantMenusServiceModule {
     @Provides
     fun providesGetMenuUseCase(apiRestaurant: ApiRestaurant): GetMenuUseCase {
         return object : GetMenuUseCase {
-            override suspend fun invoke(restaurantId: Int): List<MenuData> {
+            override suspend fun invoke(restaurantId: Int): List<Menu> {
                 return apiRestaurant.getRestaurantDetail(restaurantId).toMenus()
             }
         }
