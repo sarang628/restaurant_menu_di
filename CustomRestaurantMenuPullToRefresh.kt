@@ -6,6 +6,7 @@ import com.sarang.torang.di.pulltorefresh.providePullToRefresh
 import com.sryang.library.pullrefresh.RefreshIndicatorState
 import com.sryang.library.pullrefresh.rememberPullToRefreshState
 
-val CustomRestaurantMenuPullToRefresh : RestaurantMenuPullToRefresh = { providePullToRefresh(rememberPullToRefreshState()).invoke(
+val CustomRestaurantMenuPullToRefresh : RestaurantMenuPullToRefresh = {
+    providePullToRefresh(rememberPullToRefreshState()).invoke(
     PullToRefreshData(it.modifier, RefreshIndicatorState.Default, it.onRefresh, it.contents)
 ) }
