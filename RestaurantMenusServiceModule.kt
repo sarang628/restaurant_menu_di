@@ -1,5 +1,6 @@
 package com.sarang.torang.di.restaurant_menu_di
 
+import com.sarang.torang.api.ApiMenu
 import com.sarang.torang.api.ApiRestaurant
 import com.sarang.torang.compose.component.menu.Menu
 import com.sarang.torang.usecase.GetMenuUseCase
@@ -13,10 +14,12 @@ import dagger.hilt.components.SingletonComponent
 class RestaurantMenusServiceModule {
 
     @Provides
-    fun providesGetMenuUseCase(apiRestaurant: ApiRestaurant): GetMenuUseCase {
+    fun providesGetMenuUseCase(apiMenu: ApiMenu): GetMenuUseCase {
         return object : GetMenuUseCase {
             override suspend fun invoke(restaurantId: Int): List<Menu> {
-                return apiRestaurant.getRestaurantDetail(restaurantId).toMenus()
+                return apiMenu.findByRestaurantId(restaurantId).map {
+                    it.toMenu()
+                }
             }
         }
     }
