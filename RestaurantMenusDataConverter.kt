@@ -19,11 +19,21 @@ fun RestaurantDetailApiModel.toMenus(): List<Menu> {
 }
 
 fun MenuApiModel.toMenu() : Menu{
+    if(this.parentId == null)
+        return Menu.Category(this.menuName ?: "")
     return Menu.Item(
         MenuData(
             menuName = this.menuName ?: "",
-            price = this.menuPrice ?: "",
+            price = this.menuPrice.toString(),
             url = BuildConfig.MENU_IMAGE_SERVER_URL + this.menuPicUrl
         )
+    )
+}
+
+fun MenuApiModel.toMenuData() : MenuData{
+    return MenuData(
+        menuName = this.menuName ?: "",
+        price = this.menuPrice.toString(),
+        url = BuildConfig.MENU_IMAGE_SERVER_URL + this.menuPicUrl
     )
 }
