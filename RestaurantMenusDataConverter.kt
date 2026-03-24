@@ -20,7 +20,7 @@ fun RestaurantDetailApiModel.toMenus(): List<Menu> {
 
 fun MenuApiModel.toMenu() : Menu{
     if(this.parentId == null)
-        return Menu.Category(this.menuName ?: "")
+        return Menu.Category(this.menuName ?: "", if(this.menuPrice != null && this.menuPrice != 0) this.menuPrice.toString() else "")
     return Menu.Item(
         MenuData(
             menuName = this.menuName ?: "",
